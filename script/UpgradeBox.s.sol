@@ -9,10 +9,7 @@ import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 
 contract UpgradeBox is Script {
     function run() external {
-        address proxy = DevOpsTools.get_most_recent_deployment(
-            "ERC1967Proxy",
-            block.chainid
-        );
+        address proxy = DevOpsTools.get_most_recent_deployment("ERC1967Proxy", block.chainid);
         vm.startBroadcast();
 
         // 1. 部署新的实现合约

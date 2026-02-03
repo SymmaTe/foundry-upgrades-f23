@@ -14,10 +14,7 @@ contract DeployBox is Script {
         BoxV1 boxV1 = new BoxV1();
 
         // 2. 部署代理合约，并调用 initialize()
-        ERC1967Proxy proxy = new ERC1967Proxy(
-            address(boxV1),
-            abi.encodeCall(BoxV1.initialize, ())
-        );
+        ERC1967Proxy proxy = new ERC1967Proxy(address(boxV1), abi.encodeCall(BoxV1.initialize, ()));
 
         vm.stopBroadcast();
 
